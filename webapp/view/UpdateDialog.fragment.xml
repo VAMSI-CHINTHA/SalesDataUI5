@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="updateDialog" title="Update Existing Entry">
+        <content>
+            <VBox >
+                <Label text="Product Id"/>
+                <Input id="UproductId" editable="false"/>
+                <Label text="Product Name"/>
+                <Input id="UproductName" editable="true"/>
+                <Label text="Category"/>
+                <Input id="UCategory" editable="true"/>
+                <Label text="Sales City"/>
+                <Input id="USalesCity" editable="true"/>
+            </VBox>
+        </content>
+        <beginButton>
+            <Button text="Update" press="onUpdateEntry"/>
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" press="onCloseDialogUpdate"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

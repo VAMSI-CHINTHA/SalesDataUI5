@@ -1,0 +1,59 @@
+<mvc:View controllerName="com.company.salesinfo.salesinfo.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+    
+        <content>
+        <Text text="checking for cf deploy"></Text>
+            <!-- Sticky Toolbar for Search & Buttons -->
+            <Toolbar>
+                <!-- Search Field on the Left -->
+                <SearchField id="searchByName" liveChange="onSearchByName" width="30%" placeholder="Search by Name...">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                </SearchField>
+                <ToolbarSpacer/>
+                <!-- Action Buttons -->
+                <Button id="btnCreate" text="Create" visible="true" press="OnCreate"/>
+                <Button id="btnUpdate" text="Update" visible="false" press="OnUpdate"/>
+                <Button id="btnDelete" text="Delete" visible="false" press="onDeleteRow"/>
+                <Button icon="sap-icon://download" press="onDownloadExcel" />
+                <Button icon="sap-icon://refresh" press="onReloadData"/>
+            </Toolbar>
+
+            
+            <!-- Table with Sticky Column Headers & Pagination -->
+            <Table id="salesTable" items="{salesModel>/salesData}" mode="SingleSelectLeft"
+                selectionChange="onRowSelect" sticky="ColumnHeaders"
+                    growing="true" growingThreshold="15" growingScrollToLoad="false">
+
+                <columns>
+                    <Column>
+                        <Text text="Product ID"/>
+                    </Column>
+                    <Column>
+                        <Text text="Product Name"/>
+                    </Column>
+                    <Column>
+                        <Text text="Category"/>
+                    </Column>
+                    <Column>
+                        <Text text="Sales City"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active" press="onNavigate">
+                        <cells>
+                            <Text text="{salesModel>productId}"/>
+                            <Text text="{salesModel>productName}"/>
+                            <Text text="{salesModel>category}"/>
+                            <Text text="{salesModel>salesCity}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

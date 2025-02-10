@@ -1,0 +1,33 @@
+<mvc:View controllerName="com.company.salesinfo.salesinfo.controller.InfoInDetail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page id="InfoInDetail" title="Product Details">
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Button icon="sap-icon://nav-back" press="onBackToRouteView1" />
+                </contentLeft>
+            </Bar>
+        </customHeader>
+
+        <content>
+            <ObjectHeader
+                title="{salesModel>productName}"
+                intro="{salesModel>category}"
+                number="{salesModel>price}"
+                numberUnit="{salesModel>currency}"
+                icon="sap-icon://product"
+                responsive="true">
+                
+                <attributes>
+                    <ObjectAttribute title="Product ID" text="{salesModel>productId}" />
+                    <ObjectAttribute title="Sales City" text="{salesModel>salesCity}" />
+                    <ObjectAttribute title="Units Sold" text="{salesModel>unitsSold}" />
+                    <ObjectAttribute title="Total Revenue" text="{salesModel>totalRevenue}" />
+                    <ObjectAttribute title="Sales Date" text="{salesModel>salesDate}" />
+                </attributes>
+            </ObjectHeader>
+        </content>
+    </Page>
+</mvc:View>

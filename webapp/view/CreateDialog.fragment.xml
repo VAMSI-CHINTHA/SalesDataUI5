@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="createDialog" title="Create New Entry">
+        <content>
+            <VBox>
+                <Label text="Product Id"/>
+                <Input id="productId" placeholder="Enter Id"/>
+                <Label text="Product Name"/>
+                <Input id="productName" placeholder="Enter Name"/>
+                <Label text="category"/>
+                <Input id="category" placeholder="Enter Category"/>
+                <Label text="sales City"/>
+                <Input id="salesCity" placeholder="Enter Sales City"/>
+            </VBox>
+        </content>
+        <beginButton>
+            <Button text="Create" press="onCreateEntry"/>
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" press="onCloseDialog"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
