@@ -123,7 +123,12 @@
       "viewName": "com.company.salesinfo.salesinfo.view.App",
       "type": "XML",
       "id": "App"
-    }
+    },"componentUsages": {
+  "Component": {
+    "name": "com.company.salesinfo.salesinfo"
+  }
+}
+
   },
   "sap.cloud": {
     "public": true,

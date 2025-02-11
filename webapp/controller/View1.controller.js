@@ -213,7 +213,16 @@ sap.ui.define([
                 return;
             }
             var oModel = this.getView().getModel("salesModel");
-            var aSalesData = oModel.getProperty("/salesData");  // Get current data array        
+            var aSalesData = oModel.getProperty("/salesData");  // Get current data array 
+            
+            var pIdExists = aSalesData.some(function(oEntry) {
+                return oEntry.productId === sProductId;
+            });
+            
+            if (pIdExists) {
+                MessageToast.show("Product ID '" + sProductId + "' already exists. Please use a unique ID.");
+                return;
+            };
             var oNewEntry = { // Create new product object
                 productId: sProductId,
                 productName: sProductName,

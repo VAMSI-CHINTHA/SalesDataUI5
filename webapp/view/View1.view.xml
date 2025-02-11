@@ -5,7 +5,7 @@
     <Page id="page" title="{i18n>title}">
     
         <content>
-        <Text text="checking for cf deploy"></Text>
+        <!-- <Text text="checking for cf deploy"></Text> -->
             <!-- Sticky Toolbar for Search & Buttons -->
             <Toolbar>
                 <!-- Search Field on the Left -->
