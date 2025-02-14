@@ -5,11 +5,13 @@ sap.ui.define([
   
     return Controller.extend("com.company.salesinfo.salesinfo.controller.InfoInDetail", {
         onInit() {
-          let oRouter= sap.ui.core.UIComponent.getRouterFor(this);
-          oRouter.getRoute("RouteView2").attachPatternMatched(this.onRouteMatched,this)
+          let oRouter= this.getOwnerComponent().getRouter();
+          oRouter.getRoute("RouteView2").attachPatternMatched(this.onRouteMatched,this);
+          
+
         },
         onBackToRouteView1 : function(){
-          let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+          let oRouter = this.getOwnerComponent().getRouter()  ;
           oRouter.navTo("RouteView1")
         },
         onRouteMatched:function(oEvent){

@@ -66,7 +66,8 @@
         "settings": {
           "bundleName": "com.company.salesinfo.salesinfo.i18n.i18n"
         }
-      },
+      }
+      ,
       "salesModel": {
               "type": "sap.ui.model.json.JSONModel",
               "preload": true,
@@ -106,6 +107,13 @@
           "target": [
             "TargetView2"
           ]
+        },
+        {
+          "name": "GraphicalView",
+          "pattern": "graphical",
+          "target": [
+            "GraphicalView"
+          ]
         }
       ],
       "targets": {
@@ -116,6 +124,10 @@
         "TargetView2": {
           "id": "InfoInDetail",
           "name": "InfoInDetail"
+        },
+        "GraphicalView": {
+            "name": "Graphical",
+            "id": "Graphical"
         }
       }
     },

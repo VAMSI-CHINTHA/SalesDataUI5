@@ -1,1 +1,10 @@
 /* Enter your custom styles here */
+
+.category-green { color: green; }
+.category-blue { color: blue; }
+.category-red { color: red; }
+.category-orange { color: orange; }
+.category-purple { color: purple; }
+.category-teal { color: teal; }
+.category-lightblue { color: lightblue; }
+.category-default { color: black; }

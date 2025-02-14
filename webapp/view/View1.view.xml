@@ -5,19 +5,23 @@
     <Page id="page" title="{i18n>title}">
     
         <content>
-        <!-- <Text text="checking for cf deploy"></Text> -->
             <!-- Sticky Toolbar for Search & Buttons -->
             <Toolbar>
                 <!-- Search Field on the Left -->
-                <SearchField id="searchByName" liveChange="onSearchByName" width="30%" placeholder="Search by Name...">
-                    <layoutData>
-                        <FlexItemData growFactor="1"/>
-                    </layoutData>
-                </SearchField>
+                <SearchField 
+                    id="searchByName" 
+                    liveChange="onSearchByName" 
+                    width="30%" 
+                    placeholder="Search by Name..."/>
+                
+                <!-- <Button 
+                    id="btnShowGraph" 
+                    text="Show in Graphical Manner" 
+                    press="onShowGraph"/> -->
                 <ToolbarSpacer/>
                 <!-- Action Buttons -->
-                <Button id="btnCreate" text="Create" visible="true" press="OnCreate"/>
-                <Button id="btnUpdate" text="Update" visible="false" press="OnUpdate"/>
+                <Button id="btnCreate" text="Create" visible="true" press="OpenCreateDialog"/>
+                <Button id="btnUpdate" text="Update" visible="false" press="OpenUpdateDialog"/>
                 <Button id="btnDelete" text="Delete" visible="false" press="onDeleteRow"/>
                 <Button icon="sap-icon://download" press="onDownloadExcel" />
                 <Button icon="sap-icon://refresh" press="onReloadData"/>
@@ -27,7 +31,7 @@
             <!-- Table with Sticky Column Headers & Pagination -->
             <Table id="salesTable" items="{salesModel>/salesData}" mode="SingleSelectLeft"
                 selectionChange="onRowSelect" sticky="ColumnHeaders"
-                    growing="true" growingThreshold="15" growingScrollToLoad="false">
+                    growing="true" growingThreshold="20" growingScrollToLoad="false">
 
                 <columns>
                     <Column>
@@ -44,11 +48,14 @@
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem type="Active" press="onNavigate">
+                    <ColumnListItem type="Navigation" press="onNavigate">
                         <cells>
                             <Text text="{salesModel>productId}"/>
                             <Text text="{salesModel>productName}"/>
-                            <Text text="{salesModel>category}"/>
+                            <!-- Apply category color using the separate formatter -->
+                        <ObjectStatus 
+                            text="{salesModel>category}" 
+                            state="{path: 'salesModel>category', formatter: '.formatter.categoryStateFormatter'}"/>
                             <Text text="{salesModel>salesCity}"/>
                         </cells>
                     </ColumnListItem>

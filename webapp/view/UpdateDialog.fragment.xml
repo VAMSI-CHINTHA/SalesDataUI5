@@ -1,16 +1,21 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-    <Dialog id="updateDialog" title="Update Existing Entry">
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form">
+    <Dialog id="updateDialog" title="Update Product">
         <content>
-            <VBox >
+            <form:SimpleForm id="updateForm" editable="true" layout="ResponsiveGridLayout">
                 <Label text="Product Id"/>
-                <Input id="UproductId" editable="false"/>
+                <Input value="{salesModel>/selectedEntry/productId}" editable="false"/>
+
                 <Label text="Product Name"/>
-                <Input id="UproductName" editable="true"/>
+                <Input value="{salesModel>/selectedEntry/productName}" placeholder="Enter Name"/>
+
                 <Label text="Category"/>
-                <Input id="UCategory" editable="true"/>
+                <ComboBox selectedKey="{salesModel>/selectedEntry/category}" items="{categoryModel>/categories}">
+                    <core:ListItem key="{categoryModel>category}" text="{categoryModel>category}" />
+                </ComboBox>
+
                 <Label text="Sales City"/>
-                <Input id="USalesCity" editable="true"/>
-            </VBox>
+                <Input value="{salesModel>/selectedEntry/salesCity}" placeholder="Enter Sales City"/>
+            </form:SimpleForm>
         </content>
         <beginButton>
             <Button text="Update" press="onUpdateEntry"/>
