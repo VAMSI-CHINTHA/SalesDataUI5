@@ -15,6 +15,11 @@ server:
             - /resources
             - /test-resources
           url: https://ui5.sap.com
+        backend:
+          - path: '/https:'
+            url: https://services.odata.org/V2/Northwind/Northwind.svc
+            destination: NorthWindURL
+            authenticationType: NoAuthentication
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

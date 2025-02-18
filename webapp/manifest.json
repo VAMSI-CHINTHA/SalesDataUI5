@@ -1,149 +1,170 @@
 {
-  "_version": "1.65.0",
-  "sap.app": {
-    "id": "com.company.salesinfo.salesinfo",
-    "type": "application",
-    "i18n": "i18n/i18n.properties",
-    "applicationVersion": {
-      "version": "0.0.1"
-    },
-    "title": "{{appTitle}}",
-    "description": "{{appDescription}}",
-    "resources": "resources.json",
-    "sourceTemplate": {
-      "id": "@sap/generator-fiori:basic",
-      "version": "1.16.2",
-      "toolsId": "f20a3533-e014-4f6b-ac57-be75b30f0346"
-    },
-    "crossNavigation": {
-      "inbounds": {
-        "Customer-Display": {
-          "semanticObject": "Customer",
-          "action": "Show",
-          "title": "{{flpTitle}}",
-          "signature": {
-            "parameters": {},
-            "additionalParameters": "allowed"
-          }
-        }
-      }
-    }
-  },
-  "sap.ui": {
-    "technology": "UI5",
-    "icons": {
-      "icon": "",
-      "favIcon": "",
-      "phone": "",
-      "phone@2": "",
-      "tablet": "",
-      "tablet@2": ""
-    },
-    "deviceTypes": {
-      "desktop": true,
-      "tablet": true,
-      "phone": true
-    }
-  },
-  "sap.ui5": {
-    "flexEnabled": false,
-    "dependencies": {
-      "minUI5Version": "1.132.1",
-      "libs": {
-        "sap.m": {},
-        "sap.ui.core": {},
-        "sap.uxap": {}  
-        
-      }
-    },
-    "contentDensities": {
-      "compact": true,
-      "cozy": true
-    },
-    "models": {
-      "i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "settings": {
-          "bundleName": "com.company.salesinfo.salesinfo.i18n.i18n"
-        }
-      }
-      ,
-      "salesModel": {
-              "type": "sap.ui.model.json.JSONModel",
-              "preload": true,
-              "uri": "model/salesData.json"
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "com.company.salesinfo.salesinfo",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.2",
+            "toolsId": "f20a3533-e014-4f6b-ac57-be75b30f0346"
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "Customer-Display": {
+                    "semanticObject": "Customer",
+                    "action": "Show",
+                    "title": "{{flpTitle}}",
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    }
+                }
             }
-    },
-    "resources": {
-      "css": [
-        {
-          "uri": "css/style.css"
+        },
+        "dataSources": {
+            "northwind": {
+                "uri": "https://services.odata.org/v2/northwind/northwind.svc/$metadata",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
         }
-      ]
     },
-    "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "transition": "slide",
-        "type": "View",
-        "viewType": "XML",
-        "path": "com.company.salesinfo.salesinfo.view",
-        "async": true,
-        "viewPath": "com.company.salesinfo.salesinfo.view"
-      },
-      "routes": [
-        {
-          "name": "RouteView1",
-          "pattern": ":?query:",
-          "target": [
-            "TargetView1"
-          ]
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
         },
-        {
-          "name": "RouteView2",
-          "pattern": "Detail/{productId}",
-          "target": [
-            "TargetView2"
-          ]
-        },
-        {
-          "name": "GraphicalView",
-          "pattern": "graphical",
-          "target": [
-            "GraphicalView"
-          ]
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
         }
-      ],
-      "targets": {
-        "TargetView1": {
-          "id": "View1",
-          "name": "View1"
-        },
-        "TargetView2": {
-          "id": "InfoInDetail",
-          "name": "InfoInDetail"
-        },
-        "GraphicalView": {
-            "name": "Graphical",
-            "id": "Graphical"
-        }
-      }
     },
-    "rootView": {
-      "viewName": "com.company.salesinfo.salesinfo.view.App",
-      "type": "XML",
-      "id": "App"
-    },"componentUsages": {
-  "Component": {
-    "name": "com.company.salesinfo.salesinfo"
-  }
-}
-
-  },
-  "sap.cloud": {
-    "public": true,
-    "service": "comcompanysalesinfosalesinfo"
-  }
+    "sap.ui5": {
+        "flexEnabled": false,
+        "dependencies": {
+            "minUI5Version": "1.132.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.uxap": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.company.salesinfo.salesinfo.i18n.i18n"
+                }
+            },
+            "salesModel": {
+                "type": "sap.ui.model.json.JSONModel",
+                "preload": true,
+                "uri": "model/salesData.json"
+            },
+            "": {
+                "preload": true,
+                "dataSource": "northwind",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "com.company.salesinfo.salesinfo.view",
+                "async": true,
+                "viewPath": "com.company.salesinfo.salesinfo.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteView1",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetView1"
+                    ]
+                },
+                {
+                    "name": "RouteView2",
+                    "pattern": "Detail/{productId}",
+                    "target": [
+                        "TargetView2"
+                    ]
+                },
+                {
+                    "name": "GraphicalView",
+                    "pattern": "graphical",
+                    "target": [
+                        "GraphicalView"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetView1": {
+                    "id": "View1",
+                    "name": "View1"
+                },
+                "TargetView2": {
+                    "id": "InfoInDetail",
+                    "name": "InfoInDetail"
+                },
+                "GraphicalView": {
+                    "name": "Graphical",
+                    "id": "Graphical"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "com.company.salesinfo.salesinfo.view.App",
+            "type": "XML",
+            "id": "App"
+        },
+        "componentUsages": {
+            "Component": {
+                "name": "com.company.salesinfo.salesinfo"
+            }
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "comcompanysalesinfosalesinfo"
+    }
 }
